@@ -59,24 +59,22 @@ public class GroceryShop {
     }
 
     public static void modifyGroceryLists() {
-        System.out.println("enter item number: ");
-        int item_no = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("enter replace item");
+        System.out.println("enter old item to replase: ");
         String replace_item = scanner.nextLine();
-        groceryList.modifyGroceryList(item_no - 1, replace_item);
+        System.out.println("enter new item: ");
+        String new_item = scanner.nextLine();
+        groceryList.modifyGroceryList(replace_item,new_item);
     }
 
     public static void removeItems() {
-        System.out.println("enter item number you want to remove: ");
-        int position = scanner.nextInt();
-        scanner.nextLine();
-        groceryList.removeItem(position - 1);
+        System.out.println("enter item name you want to remove: ");
+        String item_name = scanner.nextLine();
+        groceryList.removeItem(item_name);
     }
 
     public static void findItems() {
         String item_name = scanner.nextLine();
-        if (groceryList.findItem(item_name) != null) {
+        if (groceryList.searchItem(item_name)) {
             System.out.println("Found " + item_name + " in our grocerylist");
         } else {
             System.out.println("Searchitem: " + item_name + "is not in the shopping list");
